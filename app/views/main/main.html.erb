@@ -1,0 +1,139 @@
+<div class = 'rounded-box centered'>
+  <%= image_tag('01.jpg', class: 'centered-block') %>
+  <h2>C7</h2>
+  <p> Updating a modern classic with an innovative user interface and
+    integration of more digital services</p>
+  <p>
+    <%= buy_text(2699, url_for(anchor: '')) %>
+  </p>
+</div>
+
+<div class = 'rounded-box'>
+  <%= render 'slideshow', imgs: make_img_array(3,4,5,6,7) %>
+  <h3>Beautiful from all angles</h3>
+  <p>
+    The C7 is designed and crafted like a beautiful piece of furniture &mdash; with a
+    careful selection of materials and a great attention to detail. The days of
+    wanting to hide your bulky black stereo are over. No matter where you
+    choose to place the C7, it's going to look beautiful.
+  </p>
+</div>
+
+<div class = 'rounded-box'>
+  <h3>Crafting DS C7</h3>
+  <p>Ever wondered how a product like DS C7 is built? Join us on a fascinating
+    journey that shows you the crafting of a music system.</p>
+<%
+=begin
+  <div class = 'video'>
+    <p>Video goes here</p>
+  </div>
+=end
+%>
+  <%= render 'slideshow', imgs: make_img_array(10, 23, 24, 25, 26, 27), id: 'video' %>
+</div>
+
+<div class = 'rounded-box'>
+  <h3>Tech Talk</h3>
+  <br>
+  <h4>Dimensions on Stand</h4>
+  <ul>
+    <li>Diameter x height x footprint</li>
+    <li>70.1 x 90.8 x 41.5 cm</li>
+    <li>27.6 x 35.8 x 16.3 in</li>
+  </ul>
+  <h4>Dimensions on Wall</h4>
+  <ul>
+    <li>Diameter x depth</li>
+    <li>70.1 x 21.3 cm/li>
+    <li>27.6 x 8.4 in</li>
+  </ul>
+  <h4>Weight</h4>
+  <ul>
+    <li>15 kg (incl. legs)</li>
+    <li>14.2 kg (without legs)</li>
+    <li>33.1 lbs (incl. legs)</li>
+    <li>31.5 lbs (without legs)</li>
+  </ul>
+  <h4>Power Consumption</h4>
+  <ul>
+    <li>Typical 23 watts</li>
+    <li>Standby 0.4 watts</li>
+  </ul>
+  <h4>Effective Frequency Range</h4>
+  33.1 - 25.000 Hz
+  <h4>Power Amplifiers</h4>
+  <ul>
+    <li>1 x 160 watt class D for bass</li>
+    <li>2 x 80 watt class D for midrange</li>
+    <li>2 x 80 watt class D for treble</li>
+  </ul>
+  <h4>Driver Units</h4>
+  <ul>
+    <li>1 x 8' woofer</li>
+    <li>2 x 3" midrange</li>
+    <li>2 x &frac34;" tweeters</li>
+  </ul>
+  <h4>Cabinet Principle</h4>
+  Bass-reflex
+  <h4>Room Adaptation</h4>
+  Manual position switch, wall, corner and free standing
+  <h4>Connectivity</h4>
+  <ul>
+    <li>1 x USB iPod/iPhone/iPad connector</li>
+    <li>1 x Line-in</li>
+    <li>1 x Ethernet</li>
+  </ul>
+  <h4>Wireless Connectivity</h4>
+  <ul>
+    <li>WLAN - 802.11b/g/n (2.4GHz & 5GHz)</li>
+    <li>Apple AirPlay</li>
+    <li>DLNA wireless streaming</li>
+    <li>Bluetooth 4.0</li>
+    <li>Google Cast</li>
+  </ul>
+  <h4>Supported Streaming Services</h4>
+  <ul>
+    <li>Spotify</li>
+    <li>TuneIn</li>
+    <li>Deezer</li>
+  </ul>
+  <h4>On-Device Controls</h4>
+  <p>Swipe hand across the top to turn volume up or down. Rest hand on the top
+    sensor for a few seconds to mute sound. Tap to the right to play next track
+    and left to play previous track. Short tap in the centre to initiate last
+    played source.</p>
+  <h4>Designer</h4>
+  &Oslash;ivind Alexander Slaatto
+  <h4>Base Colour</h4>
+  <ul>
+    <li>DS C7 White comes standardly with maple legs</li>
+    <li>DS C7 Black comes standardly with walnut legs</li>
+  </ul>
+  <h4>Included Cover</h4>
+  White or black
+  <h4>Additional Cover Colours</h4>
+  <ul>
+    <li>Silver, red, green, brown, blue and black</li>
+    <li>Covers by Kvadrat: Light grey, Dark grey, Dark rose and Dusty blue</li>
+  </ul>
+  <h4>Legs and Wall Bracket</h4>
+  Legs in oak, maple or walnut and wall bracket can be bought as an accessory.
+</div>
+
+<div class = 'rounded-box'>
+  <h3>C7</h4>
+  <p>Color Options:</p>
+  <%= render 'slideshow', imgs: make_img_array(16,17,18) %>
+  <% color_arr = ['Silver', 'Red', 'Green', 'Brown', 'Blue', 'Black',
+    'Light Grey', 'Dark Grey', 'Dark Rose', 'Dusty Blue'] %>
+  <% color_cooked = [] %>
+  <% color_arr.each_with_index do |color, idx| %>
+    <% color_cooked << [color, idx] %>
+  <% end %>
+  <%= form_tag root_path do %>
+    <%= select_tag(:color, options_for_select(color_cooked, 0)) %><br>
+    <%# submit_tag 'BUY' %>
+    <%= buy_form 2699 %>
+  <% end %>
+</div>

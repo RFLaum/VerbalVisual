@@ -1,0 +1,30 @@
+<%# pass in the array of image names as 'imgs,', optionally id for slideshow as 'id' %>
+
+<% num_imgs = imgs.size %>
+<div class = 'slideshow-wrapper'>
+  <% if local_assigns[:id] %>
+  <div class = 'slideshow' id = '<%= id %>'>
+  <% else %>
+  <div class = 'slideshow'>
+  <% end %>
+    <% imgs.each_with_index do |img, i| %>
+      <div class = 'slide'>
+        <div class = 'position-label'>
+          <%= "#{i + 1} / #{num_imgs}" %>
+        </div>
+        <%= image_tag(img) %>
+      </div>
+    <% end %>
+    <a class = 'prev-slide'>&laquo;</a>
+    <a class = 'next-slide'>&raquo;</a>
+    <%# link_to raw('&ltrif;'), '', class: 'prev-slide' %>
+    <%# link_to raw('&rtrif;'), '', class: 'next-slide' %>
+  </div>
+
+
+  <div class = 'circles'>
+    <% num_imgs.times do |i| %>
+      <span class = 'circle'></span>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <% if defined? @page_title %>
+        <%= @page_title %> |
+      <% end %>
+      Lundqvist &amp; Svestrom
+    </title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <div id='wrapper'>
+      <%= render 'main/header' %>
+      <div id='body'>
+        <%= yield %>
+      </div>
+      <%= render 'main/footer' %>
+    </div>
+  </body>
+</html>
