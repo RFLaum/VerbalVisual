@@ -53,6 +53,6 @@ $(document).ready(function(){
 
   $('span.circle').click(function(e){
     var parent = $(this).parent();
-    setSlide(parent.prevAll('.slideshow'), parent.index($(this)));
+    setSlide(parent.prevAll('.slideshow'), $(this).index());
   });
 });
